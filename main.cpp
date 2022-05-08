@@ -5,7 +5,7 @@
 
 using namespace std;
 
-constexpr unsigned int iterations{10};
+constexpr unsigned int iterations{50};
 constexpr double TOLX{1e-10};
 constexpr double TOLF{1e-10};
 
@@ -32,7 +32,7 @@ int main()
 
 void jacobiMethod(vector<vector<double>> &matrixA, vector<double> &vectorB, vector<double> vectorX)
 {
-    double errorEstimator{}, residue{}, errorEstimatorTmp, residueTmp, tmp;
+    double errorEstimator, residue, errorEstimatorTmp, residueTmp, tmp;
     vector<double> vectorX2{0, 0, 0, 0};
 
     cout << "Jacobi's method" << endl;
@@ -46,6 +46,8 @@ void jacobiMethod(vector<vector<double>> &matrixA, vector<double> &vectorB, vect
 
     for (int i = 0; i < iterations; ++i)
     {
+        errorEstimator = 0;
+        residue = 0;
         for (int j = 0; j < 4; ++j)
         {
             tmp = 0;
@@ -90,7 +92,7 @@ void jacobiMethod(vector<vector<double>> &matrixA, vector<double> &vectorB, vect
 
 void gaussSeidelMethod(vector<vector<double>> &matrixA, vector<double> &vectorB, vector<double> vectorX)
 {
-    double errorEstimator{}, residue{}, errorEstimatorTmp, residueTmp, tmp;
+    double errorEstimator, residue, errorEstimatorTmp, residueTmp, tmp;
     vector<double> vectorX2{0, 0, 0, 0};
 
     cout << "Gauss-Seidel method" << endl;
@@ -104,6 +106,8 @@ void gaussSeidelMethod(vector<vector<double>> &matrixA, vector<double> &vectorB,
 
     for (int i = 0; i < iterations; ++i)
     {
+        errorEstimator = 0;
+        residue = 0;
         for (int j = 0; j < 4; ++j)
         {
             tmp = 0;
@@ -148,7 +152,7 @@ void gaussSeidelMethod(vector<vector<double>> &matrixA, vector<double> &vectorB,
 
 void SORMethod(vector<vector<double>> &matrixA, vector<double> &vectorB, vector<double> vectorX, double &&omega)
 {
-    double errorEstimator{}, residue{}, errorEstimatorTmp, residueTmp, tmp;
+    double errorEstimator, residue, errorEstimatorTmp, residueTmp, tmp;
     vector<double> vectorX2{0, 0, 0, 0};
 
     cout << "SOR method" << endl;
@@ -162,6 +166,8 @@ void SORMethod(vector<vector<double>> &matrixA, vector<double> &vectorB, vector<
 
     for (int i = 0; i < iterations; ++i)
     {
+        errorEstimator = 0;
+        residue = 0;
         for (int j = 0; j < 4; ++j)
         {
             tmp = 0;
